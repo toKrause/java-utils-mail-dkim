@@ -75,7 +75,7 @@
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
-			<version>1.5.5</version>
+			<version>1.5.6</version>
 		</dependency>
 	</dependencies>
 
@@ -292,7 +292,7 @@
 					<plugin>
 						<groupId>org.eluder.coveralls</groupId>
 						<artifactId>coveralls-maven-plugin</artifactId>
-						<version>4.2.0</version>
+						<version>4.3.0</version>
 					</plugin>
 				</plugins>
 			</build>
