@@ -6,3 +6,5 @@
 .classpath
 .checkstyle
 
+/.idea
+/utils-mail-dkim.iml
