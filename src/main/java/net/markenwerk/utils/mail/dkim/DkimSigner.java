@@ -101,6 +101,9 @@ public class DkimSigner {
 		DEFAULT_HEADERS_TO_SIGN.add("Resent-Message-ID");
 		DEFAULT_HEADERS_TO_SIGN.add("Resent-From");
 		DEFAULT_HEADERS_TO_SIGN.add("Sender");
+
+		DEFAULT_HEADERS_TO_SIGN.replaceAll(String::toLowerCase);
+		MIMIMUM_HEADERS_TO_SIGN.replaceAll(String::toLowerCase);
 	}
 
 	private final Set<String> headersToSign = new HashSet<String>(DEFAULT_HEADERS_TO_SIGN);
@@ -286,7 +289,7 @@ public class DkimSigner {
 	 */
 	public void addHeaderToSign(String header) {
 		if (null != header && 0 != header.length()) {
-			headersToSign.add(header);
+			headersToSign.add(header.toLowerCase());
 		}
 	}
 
@@ -299,8 +302,8 @@ public class DkimSigner {
 	 *            The name of the header.
 	 */
 	public void removeHeaderToSign(String header) {
-		if (null != header && 0 != header.length() && !MIMIMUM_HEADERS_TO_SIGN.contains(header)) {
-			headersToSign.remove(header);
+		if (null != header && 0 != header.length() && !MIMIMUM_HEADERS_TO_SIGN.contains(header.toLowerCase())) {
+			headersToSign.remove(header.toLowerCase());
 		}
 	}
 
@@ -459,7 +462,7 @@ public class DkimSigner {
 			
 			while (headerLines.hasMoreElements()) {
 				Header header = (Header) headerLines.nextElement();
-				if (headersToSign.contains(header.getName())) {
+				if (headersToSign.contains(header.getName().toLowerCase())) {
 					reverseOrderHeaderLines.add(0, header);
 				}
 			}
@@ -470,7 +473,7 @@ public class DkimSigner {
 				headerList.append(headerName).append(":");
 				headerContent.append(headerCanonicalization.canonicalizeHeader(headerName, headerValue));
 				headerContent.append("\r\n");
-				assureHeaders.remove(headerName);
+				assureHeaders.remove(headerName.toLowerCase());
 				if (zParam) {
 					zParamString.append(headerName);
 					zParamString.append(":");
