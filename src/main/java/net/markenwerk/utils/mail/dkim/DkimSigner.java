@@ -40,6 +40,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -102,8 +103,8 @@ public class DkimSigner {
 		DEFAULT_HEADERS_TO_SIGN.add("Resent-From");
 		DEFAULT_HEADERS_TO_SIGN.add("Sender");
 
-		DEFAULT_HEADERS_TO_SIGN.replaceAll(String::toLowerCase);
-		MIMIMUM_HEADERS_TO_SIGN.replaceAll(String::toLowerCase);
+		convertListToLowerCase(DEFAULT_HEADERS_TO_SIGN);
+		convertListToLowerCase(MIMIMUM_HEADERS_TO_SIGN);
 	}
 
 	private final Set<String> headersToSign = new HashSet<String>(DEFAULT_HEADERS_TO_SIGN);
@@ -641,4 +642,11 @@ public class DkimSigner {
 		return encoded;
 	}
 
+	private static void convertListToLowerCase(List<String> strings) {
+        ListIterator<String> iterator = strings.listIterator();
+        while (iterator.hasNext())
+		{
+            iterator.set(iterator.next().toLowerCase());
+		}
+	}
 }
