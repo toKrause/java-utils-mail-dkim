@@ -1,9 +1,9 @@
-# A DKIM library for Jakarta Mail
 
-[![Build Status](https://travis-ci.org/markenwerk/java-utils-mail-dkim.svg?branch=master)](https://travis-ci.org/markenwerk/java-utils-mail-dkim)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/utils-mail-dkim/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/utils-mail-dkim)
-[![Java SE 8](https://img.shields.io/badge/java-SE_8-brightgreen.svg)](https://docs.oracle.com/javase/8/docs/api/)
-[![Apache 2.0 License](https://img.shields.io/badge/license-Apache_2.0-brightgreen.svg)](https://github.com/markenwerk/java-utils-mail-dkim/blob/master/LICENSE)
+__Be aware:__ This project is no longer maintained. Have a look at [Simple Java Mail](https://github.com/simple-java-mail/java-utils-mail-dkim) if you're interested in a successor project.
+
+----
+
+# A DKIM library for Jakarta Mail
 
 This is a simple to use library to use [DKIM](https://en.wikipedia.org/wiki/DKIM) features in conjunction with [Jakarta Mail](https://eclipse-ee4j.github.io/mail).
 
